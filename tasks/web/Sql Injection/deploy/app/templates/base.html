@@ -1,0 +1,76 @@
+<!--HTML, JQuery, and Bootstrap patterns adapted from https://www.w3schools.com/bootstrap4 examples-->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!--Preamble taken from https://www.w3schools.com/bootstrap4/bootstrap_get_started.asp-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Main Menu</title>
+        <meta charset="utf-8">
+    </head>
+
+
+<!--Navbar modified from https://www.w3schools.com/bootstrap4/bootstrap_navbar.asp-->
+<!--and https://www.w3schools.com/bootstrap4/tryit.asp?filename=trybs_navbar_color&stacked=h-->
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <a class="navbar-brand">User panel</a>
+      <ul class="navbar-nav">
+      </ul>
+    </nav>
+    <body>
+
+        <div class="container-fluid">
+            <main class="row">
+                <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+                  <div class="sidebar-sticky pt-3">
+                    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                      <span>Admin Reports</span>
+                      <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
+                        <span data-feather="plus-circle"></span>
+                      </a>
+                    </h6>
+                    <ul class="nav flex-column mb-2">
+                      <li class="nav-item">
+                          <form action="{{ url_for('find') }}" method="post" >
+                        <p>Find user by id</p>
+                            <input id="id" type="text" name="id">
+                        <button class="btn btn-primary btn-xs" type="submit">Find</button>
+                        </form>
+                      </li>
+                    </ul>
+                  </div>
+                </nav>
+                <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                      <div class="container">
+                          <div class="row">
+                            {% with messages = get_flashed_messages() %}
+                              {% if messages %}
+                                <ul class=flashes>
+                                {% for message in messages %}
+                                  <li>{{ message }}</li>
+                                {% endfor %}
+                                </ul>
+                              {% endif %}
+                            {% endwith %}
+                          </div>
+                      </div>
+                        <div class="container-fluid">
+                          <div class="row">
+
+                                {% block content %}{% endblock %}
+                          </div>
+                      </div>
+                    </div>
+                </main>
+              </main>
+        </div>
+    </body>
+</html>

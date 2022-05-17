@@ -1,0 +1,14 @@
+<div class="pentagram">
+  <img src="assets/pentagram.jpg" alt="">
+  <div class="sign">
+    <span class="sign-no" *ngIf="isMindReadSign === false">NO</span>
+    <span class="sign-yes" *ngIf="isMindReadSign === true">YES</span>
+  </div>
+</div>
+
+<div class="actions">
+  <button (click)="isMindRead()">Is mind read</button>
+  <button (click)="readMind()">Read mind</button>
+</div>
+
+

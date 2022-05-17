@@ -1,0 +1,15 @@
+version: "3.3"
+
+services:
+    client:
+        image: nginx
+        container_name: no_big_button_nginx
+        ports:
+            - 8020:80
+        volumes:
+            - ./src:/usr/share/nginx/html
+        healthcheck:
+            test: curl --fail http://localhost || exit 1
+            interval: 60s
+            retries: 5
+            timeout: 10s

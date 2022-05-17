@@ -1,0 +1,51 @@
+.pentagram {
+  background-color: #000;
+  position: relative;
+}
+
+.actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-bottom: 15px;
+}
+
+.actions button {
+  border: 2px solid #2D2E8E;
+  background: transparent;
+  color: #2D2E8E;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.actions button:hover {
+  cursor: pointer;
+  border: 2px solid #2D2E8E;
+  background: #2D2E8E;
+  color: #000;
+
+}
+
+.sign {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+
+  font-weight: bold;
+  font-size: 5rem;
+}
+
+.sign-no {
+  color: red;
+}
+
+.sign-yes {
+  color: greenyellow;
+}

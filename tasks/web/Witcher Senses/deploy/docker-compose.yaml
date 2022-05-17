@@ -1,0 +1,9 @@
+version: '3.3'
+services:
+  witcher-ss:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8060:4200"
+    restart: on-failure

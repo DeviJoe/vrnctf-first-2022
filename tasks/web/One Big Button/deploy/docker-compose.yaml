@@ -1,0 +1,15 @@
+version: "3.3"
+
+services:
+   client_one_btn:
+        image: nginx
+        container_name: one_button_nginx
+        ports:
+            - 8010:80
+        volumes:
+            - ./src:/usr/share/nginx/html
+        healthcheck:
+            test: curl --fail http://localhost || exit 1
+            interval: 60s
+            retries: 5
+            timeout: 10s

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            max-width: 60%;
+            margin: 0 auto;
+        }
+
+        #cat {
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(5, auto);
+            justify-content: flex-start;
+            align-content: flex-start;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+    </style>
+    <title>VrnCTF</title>
+</head>
+<body>
+    <div id="cat"></div>
+    <script type="text/javascript">
+
+        function getImages(count) {
+            const images = [];
+            for(let i = 1; i <= count; i++) {
+                let img = new Image();
+                img.src = `images/${i < 10 ? '0' + i : i}.jpg`;
+                images.push(img);
+            }
+            return images;
+        }
+
+        function addImageToContainer(image, container) {
+            container.appendChild(image);
+        }
+
+        function addImagesToContainer(images, container) {
+            images = Array.isArray(images) ? images : [];
+            if(!images.length) {
+                return;
+            }
+            images.forEach((image) => {
+                addImageToContainer(image, container)
+            })
+        }
+
+        function main() {
+            const imagesCount = 25;
+            const catContainer = document.getElementById('cat');
+            const images = getImages(imagesCount);
+            addImagesToContainer(images, catContainer)
+        }
+
+        main()
+    </script>
+</body>
+</html>

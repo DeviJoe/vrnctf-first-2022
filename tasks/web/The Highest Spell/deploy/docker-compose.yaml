@@ -1,0 +1,9 @@
+version: '3.3'
+services:
+  highest-spell:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8050:4200"
+    restart: on-failure

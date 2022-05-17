@@ -1,0 +1,8 @@
+version: '3.3'
+services:
+  app_pieces:
+    build: .
+    container_name: pieces
+    restart: on-failure
+    ports:
+      - "8030:80"
